@@ -1,0 +1,57 @@
+
+import sys
+n,m  = map(int, sys.stdin.readline().strip().split(" "))
+x = [0 for _ in range(n)]
+numsc = [[]for _ in range(n)]
+for idx in range(n):
+    temp = map(int, sys.stdin.readline().strip().split(" "))
+    x[idx] = temp[0]
+    numsc[idx] = temp[1:]
+
+max_output = 0
+recent_list = []
+
+for idx in range(n):
+    if len(numsc[idx]) >= 2:
+        recent_list.append([numsc[idx][0], idx, 0])
+        recent_list.append([numsc[idx][-1], idx, -1])
+    elif len(numsc[idx]) == 1:
+        recent_list.append([numsc[idx][0], idx, 0])
+
+
+
+def recent_list_add(cengshu, shouwei):
+    idx = cengshu
+    if len(numsc[idx]) > 2:
+        numsc[cengshu].pop(shouwei)
+        recent_list.append([numsc[idx][0], idx, 0])
+        recent_list.append([numsc[idx][-1], idx, -1])
+    else:
+        numsc[cengshu].pop(shouwei)
+
+
+
+def dfs(k, now_val, max_output):
+    if k == m:
+        if max_output < now_val:
+            max_output = now_val
+            return max_output
+
+    for idx, (c, cengshu, shouwei) in enumerate(recent_list):
+        recent_list.pop(idx)
+        recent_list_add(cengshu, shouwei)
+        max_output = dfs(k+ 1,now_val + c, max_output)
+        numsc[cengshu].insert(shouwei, c)
+        recent_list.insert(idx, [c, cengshu, shouwei])
+
+    return max_output
+
+print dfs(0, 0, 0)
+
+
+
+
+
+1 2 3 4 5 6
+1 2 6 5 3 4
+1 2 3 4 6 5
