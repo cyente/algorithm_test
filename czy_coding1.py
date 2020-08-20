@@ -13,6 +13,7 @@ with open('input1.txt', 'r') as f:
 # dice_list.append()
 parent_list = [-1 for _ in range(n)]
 rank = [0 for _ in range(n)]
+#add some thing
 
 def find_root(i):
     # if parent_list[i] == -1:
