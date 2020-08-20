@@ -7,18 +7,22 @@ coin_list = map(int, sys.stdin.readline().strip().split(' '))
 def cha(number, arr):
     sum_arr = sum(arr)
     lenght = len(arr)
-
-    dp = [[0 for i in range(sum_arr)] for j in range(lenght+1)]
-
+    if len(arr) == 1:
+        return -1
+    dp = [0 for i in range(sum_arr)]
+    judge = sum_arr//2+1
     for i in range(1, lenght+1):
-        for j in range(1, sum_arr//2+1):
+        for jdx in range(judge):
+            j = judge - jdx
             if j >= arr[i-1]:
                 #print(i, j, arr[i-1])
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - arr[i - 1]] + arr[i - 1])
+                dp[j] = max(dp[j],
+                            dp[j - arr[i - 1]] + arr[i-1]
+                            )
             else:
-                dp[i][j] = dp[i - 1][j]
+                dp[j] = dp[j]
 
-    return sum_arr - 2*dp[lenght][sum_arr//2]
+    return abs(sum_arr - 2*dp[judge -1])
 
 #mm = cha(5, [5, 10, 8, 2, 10])
 mm = cha(m, coin_list)

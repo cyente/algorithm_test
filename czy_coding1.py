@@ -17,7 +17,7 @@ def share(coin_list):
     coin_list = coin_list[::-1]
 
     dp = [[0 for _ in range(int(half))]for _ in range(m)]
-    for idx in range(m):
+    for idx in range(m+1):
         for jdx in range(int(half+1)):
             if jdx - coin_list[idx] >= 0:
                 dp[idx][jdx] = max([dp[idx-1][jdx],
