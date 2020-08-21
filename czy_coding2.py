@@ -3,6 +3,9 @@ import sys
 m = int(sys.stdin.readline().strip())
 coin_list = map(int, sys.stdin.readline().strip().split(' '))
 
+# with open('czy_input1.txt', 'r') as f:
+#     m = int(f.readline().strip())
+#     coin_list = map(int, f.readline().strip().split(' '))
 
 def cha(number, arr):
     if len(arr) == 1:
