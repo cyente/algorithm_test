@@ -1,2 +1,3 @@
 def test(input_data):
-  print(input_tata)
+    print(input_data)
+    print(input_data)
