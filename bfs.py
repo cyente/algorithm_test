@@ -4,10 +4,6 @@ class Solution(object):
         :type s: str
         :rtype: List[str]
         """
-        output_list = []
-        flag_list = [True for _ in s]
-        # s = list(s)
-        idx = 0
 
         def _isvalid(s):
             if len(s) == 0:
