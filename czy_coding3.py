@@ -1,7 +1,9 @@
 # Definition for a binary tree node.
 
 import sys
-M = int(sys.stdin.readline().strip())
 
+# s = map(str, sys.stdin.readline().strip().split(' '))
 
+with open('czy_input1.txt', 'r') as f:
+    s = f.readline().strip()
 
