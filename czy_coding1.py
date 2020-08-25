@@ -20,6 +20,8 @@ import sys
 array = map(int, sys.stdin.readline().strip().split(","))
 
 def compress(arr):
+    if not arr:
+        return arr
     idx_array = zip(*(range(1, len(arr)+1), array))
     idx_array.sort(key=lambda x: x[1])
     _index, _array = zip(*idx_array)
