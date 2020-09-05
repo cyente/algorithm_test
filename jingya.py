@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 def cha(number, arr):
     sum_arr = sum(arr)
     lenght = len(arr)
@@ -9,8 +12,12 @@ def cha(number, arr):
         for j in range(1, sum_arr//2+1):
             if j >= arr[i-1]:
                 #print(i, j, arr[i-1])
+<<<<<<< HEAD
                 dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - arr[i - 1]] +
                                arr[i - 1])
+=======
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - arr[i - 1]] + arr[i - 1])
+>>>>>>> origin/master
             else:
                 dp[i][j] = dp[i - 1][j]
 
@@ -20,3 +27,4 @@ def cha(number, arr):
 mm = cha(3, [1,2,3])
 print(mm)
 print('test')
+
