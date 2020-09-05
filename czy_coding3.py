@@ -1,6 +1,7 @@
 # Definition for a binary tree node.
 
 import sys
+import math
 
 
 with open("czy_input1.txt") as f:
@@ -15,3 +16,11 @@ with open("czy_input1.txt") as f:
         sigma.append(temp[2])
     sample_list = list(map(float, f.readline().strip().split(' ')))
 
+
+def 
+
+def EM(a, mu, sigma, sample_list):
+
+
+
+def E_step():

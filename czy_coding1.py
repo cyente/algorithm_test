@@ -23,7 +23,7 @@ for idx in range(n):
 sum = 0
 for key, value in dict_username.items():
     if len(value) >=2:
-        sum += len(value)
+        sum += 1 # len(value)
 
 print sum
 
