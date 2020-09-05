@@ -17,7 +17,7 @@ with open("czy_input1.txt") as f:
     sample_list = list(map(float, f.readline().strip().split(' ')))
 
 
-def 
+def
 
 def EM(a, mu, sigma, sample_list):
 
