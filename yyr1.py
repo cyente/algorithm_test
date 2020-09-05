@@ -24,32 +24,31 @@ for _ in range(t):
     waitingList2 = [beginPos]
     cnt = -1
     findFlag = False
-    visited = {}
     while waitingList2:
         waitingList = waitingList2.copy()
         waitingList2 = []
         cnt += 1
         while waitingList:
             curPos = waitingList.pop()
-            if curPos in visited:
+            if allPos[curPos] == 2:
                 continue
             else:
-                visited[curPos] = 1
+                allPos[curPos] = 2
             if curPos == endPos:
                 findFlag = True
                 ans.append(cnt)
                 break
             node = (curPos[0]-1, curPos[1])
-            if node in allPos and node not in visited:
+            if node in allPos and allPos[node] == 1:
                 waitingList2.append(node)
             node = (curPos[0] + 1, curPos[1])
-            if node in allPos and node not in visited:
+            if node in allPos and allPos[node] == 1:
                 waitingList2.append(node)
             node = (curPos[0], curPos[1]-1)
-            if node in allPos and node not in visited:
+            if node in allPos and allPos[node] == 1:
                 waitingList2.append(node)
             node = (curPos[0], curPos[1]+1)
-            if node in allPos and node not in visited:
+            if node in allPos and allPos[node] == 1:
                 waitingList2.append(node)
         if findFlag == True:
             break
