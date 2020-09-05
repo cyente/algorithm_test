@@ -3,17 +3,15 @@
 import sys
 
 
-frame = list(map(int, sys.stdin.readline().strip().split(" ")))
+with open("czy_input1.txt") as f:
+    K, N, M = list(map(int, f.readline().strip().split(' ')))
+    a = []
+    mu = []
+    sigma = []
+    for _ in range(K):
+        temp = list(map(float, f.readline().strip().split(' ')))
+        a.append(temp[0])
+        mu.append(temp[1])
+        sigma.append(temp[2])
+    sample_list = list(map(float, f.readline().strip().split(' ')))
 
-brick = list(map(int, sys.stdin.readline().strip().split(" ")))
-
-m, n = len(frame), len(brick)
-
-def add_brick(i, brick):
-    max_place = frame[i] + brick[0]
-    for idx in enumerate(brick):
-        if max_place < frame[i+idx] + brick[idx]:
-
-
-
-for idx in range(0, m - n):
