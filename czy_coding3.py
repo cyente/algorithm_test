@@ -16,8 +16,9 @@ with open("czy_input1.txt") as f:
         sigma.append(temp[2])
     sample_list = list(map(float, f.readline().strip().split(' ')))
 
+pi = 3.14159265358979323846264
+def Normal(x, m, s):
 
-def
 
 def EM(a, mu, sigma, sample_list):
 
