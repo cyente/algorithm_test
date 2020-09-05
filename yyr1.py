@@ -1,5 +1,6 @@
 import sys
 t = int(sys.stdin.readline().strip())
+ans = []
 for _ in range(t):
     n = int(sys.stdin.readline().strip())
     beginPos = (0, 0)
@@ -36,7 +37,7 @@ for _ in range(t):
                 visited[curPos] = 1
             if curPos == endPos:
                 findFlag = True
-                print(cnt)
+                ans.append(cnt)
                 break
             node = (curPos[0]-1, curPos[1])
             if node in allPos and node not in visited:
@@ -52,7 +53,8 @@ for _ in range(t):
                 waitingList2.append(node)
         if findFlag == True:
             break
-
+for i in ans:
+    print(i)
 
 
 
