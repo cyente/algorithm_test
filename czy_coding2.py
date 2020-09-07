@@ -20,67 +20,35 @@ for _ in range(t):
                 curPos = (curPos[0], curPos[1]+1)
             allPos[curPos] = 1
     endPos = curPos
-    waitingList = []
-    waitingList2 = [beginPos]
-    cnt = -1
-    findFlag = False
-    visited = {}
-    while waitingList2:
-        waitingList = waitingList2.copy()
-        waitingList2 = []
-        cnt += 1
-        while waitingList:
-            curPos = waitingList.pop()
-            if curPos in visited:
-                continue
-            else:
-                visited[curPos] = 1
-            if curPos == endPos:
-                findFlag = True
-                ans.append(cnt)
-                break
-            node = (curPos[0]-1, curPos[1])
-            if node in allPos and node not in visited:
-                waitingList2.append(node)
-            node = (curPos[0] + 1, curPos[1])
-            if node in allPos and node not in visited:
-                waitingList2.append(node)
-            node = (curPos[0], curPos[1]-1)
-            if node in allPos and node not in visited:
-                waitingList2.append(node)
-            node = (curPos[0], curPos[1]+1)
-            if node in allPos and node not in visited:
-                waitingList2.append(node)
-        if findFlag == True:
+
+    cnt = 0
+    current_steplist = [beginPos]
+
+    while True:
+        if endPos in current_steplist:
+            ans.append(cnt)
             break
-for i in ans:
-    print(i)
+        else:
+            new_current_steplist = []
+            for curPos in current_steplist:
+                if allPos[curPos] == 2:
+                    continue
+                allPos[curPos] = 2
+                temp = (curPos[0]-1, curPos[1])
+                if allPos.has_key(temp) and allPos[temp]==1:
+                    new_current_steplist.append(temp)
+                temp = (curPos[0], curPos[1] -1)
+                if allPos.has_key(temp) and allPos[temp] == 1:
+                    new_current_steplist.append(temp)
+                temp = (curPos[0] + 1, curPos[1])
+                if allPos.has_key(temp) and allPos[temp] == 1:
+                    new_current_steplist.append(temp)
+                temp = (curPos[0], curPos[1]+1)
+                if allPos.has_key(temp) and allPos[temp] == 1:
+                    new_current_steplist.append(temp)
 
+            current_steplist = new_current_steplist[:]
+            cnt += 1
 
-
-'''
-3
-10
-0 1
-0 -1
-1 1
-1 1
-1 -1
-0 1
-2 1
-2 -1
-3 1
-3 1
-2
-3 1
-3 1
-8
-0 1
-0 1
-3 1
-3 1
-1 1
-1 1
-2 1
-0 1
-'''
+for a in ans:
+    print a
